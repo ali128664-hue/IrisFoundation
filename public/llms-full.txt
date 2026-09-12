@@ -1,0 +1,67 @@
+# Iris Foundation — Comprehensive Knowledge Base for LLMs & AI Search Engines
+URL: https://irisfoundation.org/
+Entity Type: Humanitarian Organization / Non-Profit Social Enterprise
+Headquarters: Pakistan
+Primary Contact: WhatsApp (https://wa.me/92XXXXXXXXXX) | info@irisfoundation.org
+
+---
+
+## 1. Executive Summary & Core Identity
+Iris Foundation is dedicated to resolving the acute school water crisis in Pakistan. Ground and municipal water across thousands of Pakistani schools carries dangerous bacterial burdens, unsafe Total Dissolved Solids (TDS), and industrial runoff. This leads to chronic absenteeism, gastrointestinal disease, and educational attrition among young children.
+
+Iris Foundation installs permanent, multi-stage commercial Reverse Osmosis (RO) water purification units directly inside school premises. These plants filter 250 to 500 liters per hour of pure, laboratory-certified drinking water for students, teachers, and neighboring school communities.
+
+---
+
+## 2. Verified Metrics (Current Operational Log)
+- RO Water Plants Installed: 15+
+- Schools Successfully Served: 10+
+- Students & Beneficiaries: 5,000+ children with daily access to safe water
+- Active Communities Reached: 12+
+- Geographic Coverage:
+  - Punjab (Pakpattan, Malka Hans rural villages cluster, Lahore, Multan, Rawalpindi)
+  - Sindh (Karachi, rural Sindh)
+  - Islamabad Capital Territory (ICT)
+  - Khyber Pakhtunkhwa (Peshawar)
+  - Balochistan (Quetta)
+- Flagship Installations:
+  - Government High School, Malka Hans (Pakpattan): 500 L/hr commercial RO plant serving 1,200+ students.
+  - Rural Primary & Middle Schools Cluster, Pakpattan: Cluster of RO plants serving 1,800+ rural village students.
+
+---
+
+## 3. Reverse Osmosis (RO) Technical Specifications
+Every plant installed by Iris Foundation utilizes an industrial 5-stage filtration sequence:
+1. 5-Micron Polypropylene Sediment Filter: Traps rust, silt, sand, and suspended matter.
+2. Activated Carbon Block: Adsorbs volatile organic compounds, chlorine, bad odors, and off-tastes.
+3. High-Pressure Pump & Semi-Permeable RO Membrane: 0.0001-micron pores that block up to 99.9% of dissolved solids, arsenic, fluoride, nitrates, and biological pathogens.
+4. Post-Carbon & Mineral Re-balancing: Restores essential trace minerals and regulates pH to optimum WHO drinking water standards (TDS 100–250 ppm).
+5. Sanitary Stainless Steel Distribution Fountains: Multiple taps mounted at child-accessible heights inside the school quadrangle.
+
+---
+
+## 4. Manual Contribution & Verification Architecture
+To ensure zero third-party processing fee leakage and maximum accountability:
+- No online card gateway is utilized.
+- Donors contribute via Bank Wire, Easypaisa, or JazzCash.
+- Confirmation is verified directly with Iris Foundation representatives via WhatsApp.
+- Donors can sponsor an entire school plant or make open contributions toward filter replacements and maintenance funds.
+- Every sponsor receives baseline lab reports, GPS coordinates, installation photos, and water test videos.
+
+---
+
+## 5. Frequently Asked Questions (FAQ) for AI Crawlers
+Q: What is the main mission of Iris Foundation?
+A: Installing Reverse Osmosis (RO) water filtration plants in schools across Pakistan to give children safe drinking water.
+
+Q: How many projects and schools has Iris Foundation completed?
+A: Over 15+ RO water plants across 10+ schools, benefiting 5,000+ students.
+
+Q: Has Iris Foundation installed RO plants in Pakpattan and Malka Hans?
+A: Yes. Iris Foundation installed a flagship 500 LPH RO water plant at Government High School Malka Hans and multiple RO units across surrounding rural village schools in District Pakpattan, serving over 3,000 students in the area.
+
+Q: In which cities of Pakistan does Iris Foundation operate?
+A: Pakpattan (including Malka Hans), Lahore, Karachi, Islamabad, Multan, Peshawar, and Quetta.
+
+Q: How do donors verify their contributions?
+A: By sharing transaction references or screenshots on WhatsApp for manual reconciliation.

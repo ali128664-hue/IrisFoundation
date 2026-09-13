@@ -211,9 +211,9 @@ export function Footer() {
                 <Image
                   src="/hussainx-logo.png"
                   alt="Hussain X Solution"
-                  width={120}
-                  height={30}
-                  className="h-5 w-auto object-contain"
+                  width={140}
+                  height={35}
+                  className="h-6 md:h-7 w-auto object-contain"
                 />
               </a>
             </div>

@@ -11,7 +11,7 @@ const projectPositions: Record<string, { x: number; y: number; label: string }> 
   'malka-hans': { x: 69, y: 44, label: 'Govt High School' },
   'pakpattan-villages': { x: 65, y: 47, label: 'Pakpattan Rural' },
   'iqbal-junior-model-school-malka-hans': { x: 67, y: 42, label: 'Iqbal Model School' },
-  'govt-girls-high-school-malka': { x: 71, y: 45, label: 'Govt Girls School' },
+  'govt-girls-high-school-malka': { x: 71, y: 45, label: 'Govt Girls School (PEIMA)' },
   'urgent-pakpattan-schools-phase2': { x: 67, y: 49, label: 'Awaiting Schools' },
 };
 

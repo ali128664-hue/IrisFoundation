@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   description:
     'Iris Foundation is helping schools and communities access safer drinking water through RO water filtration projects and meaningful social initiatives.',
   url: 'https://irisfoundation.org',
-  email: 'contact@irisfoundation.org',
+  email: 'info@irisfoundation.net',
   phone: '+92 306 6305875',
   whatsapp: '+92 306 6305875',
   address: 'Pakpattan / Malka Hans, Punjab, Pakistan',

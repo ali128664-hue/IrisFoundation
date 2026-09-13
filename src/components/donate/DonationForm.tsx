@@ -1,12 +1,13 @@
 'use client';
 import { useState, FormEvent } from 'react';
 import { Send, CheckCircle2, AlertCircle, MessageCircle, UploadCloud } from 'lucide-react';
-import { WHATSAPP_URL, WHATSAPP_DONATION_MESSAGE } from '@/config/constants';
+import { WHATSAPP_NUMBER } from '@/config/constants';
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
 export function DonationForm() {
   const [state, setState] = useState<FormState>('idle');
+  const [lastWhatsAppUrl, setLastWhatsAppUrl] = useState<string>('');
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
@@ -35,21 +36,37 @@ export function DonationForm() {
     }
 
     setState('submitting');
+
+    const donationText = [
+      `*Donation Confirmation — Iris Foundation*`,
+      `━━━━━━━━━━━━━━━━━━━━━`,
+      `👤 *Donor Name:* ${formData.fullName}`,
+      `📞 *Phone / WhatsApp:* ${formData.phone}`,
+      `📧 *Email:* ${formData.email || 'Not provided'}`,
+      `💰 *Donation Amount:* PKR ${formData.amount || 'Not specified'}`,
+      `🏦 *Payment Method:* ${formData.paymentMethod}`,
+      `🔖 *Transaction ID / Ref:* ${formData.transactionId}`,
+      `💬 *Message / Cause:* ${formData.message || 'General Clean Water Fund'}`,
+      `━━━━━━━━━━━━━━━━━━━━━`,
+      `_I have completed the manual bank transfer and am sharing my details for verification._`,
+    ].join('\n');
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(donationText)}`;
+    setLastWhatsAppUrl(whatsappUrl);
+
     try {
-      const res = await fetch('/api/donate', {
+      await fetch('/api/donate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      const data = await res.json();
-      if (res.ok && data.success) {
-        setState('success');
-      } else {
-        setState('error');
-      }
     } catch {
-      setState('error');
+      // Continue to open WhatsApp even if internal API logging encounters issues
     }
+
+    // Direct redirection / open WhatsApp with the donation message
+    window.open(whatsappUrl, '_blank');
+    setState('success');
   };
 
   const inputClass = (field: string) =>
@@ -66,23 +83,23 @@ export function DonationForm() {
           <CheckCircle2 className="w-8 h-8" />
         </div>
         <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-3">
-          Thank You for Supporting Iris Foundation.
+          Donation Details Ready on WhatsApp!
         </h3>
         <p className="text-gray-600 max-w-md mx-auto mb-6">
-          Your donation details have been recorded. Our team will verify and acknowledge your contribution shortly.
+          Aap ki donation details WhatsApp message ki soorat mein tayar kar li gayi hain. Agar WhatsApp khud na khulay, tou neechay diye gaye button par click karein:
         </p>
         <div className="bg-[#25D366]/10 border border-[#25D366]/30 rounded-2xl p-6 mb-8 max-w-md mx-auto">
           <p className="text-sm text-gray-800 font-medium mb-3">
-            Please also contact us on WhatsApp for quick confirmation.
+            Click below to send receipt & confirm on WhatsApp:
           </p>
           <a
-            href={`${WHATSAPP_URL}?text=${WHATSAPP_DONATION_MESSAGE}`}
+            href={lastWhatsAppUrl || `https://wa.me/${WHATSAPP_NUMBER}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-6 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold rounded-xl shadow-md transition-all hover:shadow-lg"
           >
             <MessageCircle className="w-5 h-5" />
-            💬 CHAT ON WHATSAPP
+            💬 SEND VIA WHATSAPP NOW
           </a>
         </div>
         <button

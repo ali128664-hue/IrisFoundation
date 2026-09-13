@@ -1,11 +1,13 @@
 'use client';
 import { useState, FormEvent } from 'react';
-import { Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, MessageCircle } from 'lucide-react';
+import { WHATSAPP_NUMBER } from '@/config/constants';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 export function ContactForm() {
   const [status, setStatus] = useState<FormStatus>('idle');
+  const [lastMessageUrl, setLastMessageUrl] = useState<string>('');
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -19,42 +21,71 @@ export function ContactForm() {
     if (!form.name || !form.email || !form.message) return;
 
     setStatus('submitting');
+
+    const formattedMessage = [
+      `*New Inquiry — Iris Foundation*`,
+      `━━━━━━━━━━━━━━━━━━━━━`,
+      `👤 *Name:* ${form.name}`,
+      `📧 *Email:* ${form.email}`,
+      `📞 *Phone:* ${form.phone || 'Not provided'}`,
+      `📌 *Subject:* ${form.subject || 'School RO Plant Inquiry'}`,
+      `💬 *Message:*`,
+      form.message,
+      `━━━━━━━━━━━━━━━━━━━━━`,
+    ].join('\n');
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(formattedMessage)}`;
+    setLastMessageUrl(whatsappUrl);
+
     try {
-      const res = await fetch('/api/contact', {
+      await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      const data = await res.json();
-      if (res.ok && data.success) {
-        setStatus('success');
-      } else {
-        setStatus('error');
-      }
     } catch {
-      setStatus('error');
+      // Continue to open WhatsApp even if internal API logger has error
     }
+
+    // Direct redirection / open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    setStatus('success');
   };
 
   if (status === 'success') {
     return (
-      <div className="p-8 rounded-2xl bg-green-50 text-center border border-green-200">
-        <CheckCircle2 className="w-12 h-12 text-green-600 mx-auto mb-3" />
-        <h4 className="text-xl font-bold text-gray-900 mb-1">
-          Thank you. Your message has been received.
+      <div className="p-8 rounded-3xl bg-green-50 text-center border border-green-200 space-y-4">
+        <CheckCircle2 className="w-12 h-12 text-green-600 mx-auto" />
+        <h4 className="text-xl font-bold text-gray-900">
+          Message Prepared & Sent via WhatsApp!
         </h4>
-        <p className="text-gray-600 text-sm">
-          Our team will review your message and contact you promptly.
+        <p className="text-gray-600 text-sm max-w-md mx-auto leading-relaxed">
+          Aap ka message WhatsApp par bhej diya gaya hai. Agar WhatsApp khud na khulay, tou neechay diye gaye button par click karein:
         </p>
-        <button
-          onClick={() => {
-            setStatus('idle');
-            setForm({ name: '', email: '', phone: '', subject: '', message: '' });
-          }}
-          className="mt-6 text-xs text-[#8B2FC9] underline font-bold cursor-pointer"
-        >
-          Send another message
-        </button>
+
+        {lastMessageUrl && (
+          <a
+            href={lastMessageUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold text-sm rounded-full shadow-md hover:shadow-lg transition-all"
+          >
+            <MessageCircle className="w-5 h-5" />
+            Open in WhatsApp Now
+          </a>
+        )}
+
+        <div>
+          <button
+            onClick={() => {
+              setStatus('idle');
+              setForm({ name: '', email: '', phone: '', subject: '', message: '' });
+            }}
+            className="text-xs text-[#8B2FC9] underline font-bold cursor-pointer hover:text-[#7823b0]"
+          >
+            Send another message
+          </button>
+        </div>
       </div>
     );
   }

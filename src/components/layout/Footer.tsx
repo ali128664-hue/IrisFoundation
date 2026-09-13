@@ -195,34 +195,41 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-          <p className="text-white/30 text-sm">
-            &copy; {currentYear} Iris Foundation. All rights reserved.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-white/30 text-sm">
-            <div className="flex items-center gap-1">
-              <span>Made with</span>
-              <Heart className="w-3 h-3 text-[#E91E8C]" />
-              <span>for a better Pakistan</span>
-            </div>
+        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-3 text-white/40 text-sm">
+            <p>&copy; {currentYear} Iris Foundation. All rights reserved.</p>
             <span className="hidden sm:inline text-white/20">•</span>
-            <p>
-              Designed by{' '}
+            <div className="flex items-center gap-2">
+              <span>Designed & Developed by</span>
               <a
                 href="https://hussainxsolution.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/50 hover:text-white transition-colors underline-offset-4 hover:underline"
+                className="inline-flex items-center bg-white/95 hover:bg-white px-2.5 py-1 rounded-md transition-all hover:scale-105 shadow-sm"
+                title="Hussain X Solution"
               >
-                Hussain X Solution
+                <Image
+                  src="/hussainx-logo.png"
+                  alt="Hussain X Solution"
+                  width={120}
+                  height={30}
+                  className="h-5 w-auto object-contain"
+                />
               </a>
-            </p>
+            </div>
           </div>
-          <div className="flex gap-4">
-            <Link href="/privacy-policy" className="text-white/30 hover:text-white text-sm transition-colors">
+
+          <div className="flex items-center gap-1.5 text-white/40 text-sm">
+            <span>Made with</span>
+            <Heart className="w-3.5 h-3.5 text-[#E91E8C] fill-[#E91E8C]" />
+            <span>for a better Pakistan</span>
+          </div>
+
+          <div className="flex gap-6">
+            <Link href="/privacy-policy" className="text-white/40 hover:text-white text-sm transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-white/30 hover:text-white text-sm transition-colors">
+            <Link href="/terms" className="text-white/40 hover:text-white text-sm transition-colors">
               Terms
             </Link>
           </div>

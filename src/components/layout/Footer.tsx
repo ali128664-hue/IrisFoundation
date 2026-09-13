@@ -195,14 +195,28 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <p className="text-white/30 text-sm">
             &copy; {currentYear} Iris Foundation. All rights reserved.
           </p>
-          <div className="flex items-center gap-1 text-white/30 text-sm">
-            <span>Made with</span>
-            <Heart className="w-3 h-3 text-[#E91E8C]" />
-            <span>for a better Pakistan</span>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-white/30 text-sm">
+            <div className="flex items-center gap-1">
+              <span>Made with</span>
+              <Heart className="w-3 h-3 text-[#E91E8C]" />
+              <span>for a better Pakistan</span>
+            </div>
+            <span className="hidden sm:inline text-white/20">•</span>
+            <p>
+              Designed by{' '}
+              <a
+                href="https://hussainxsolution.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/50 hover:text-white transition-colors underline-offset-4 hover:underline"
+              >
+                Hussain X Solution
+              </a>
+            </p>
           </div>
           <div className="flex gap-4">
             <Link href="/privacy-policy" className="text-white/30 hover:text-white text-sm transition-colors">
